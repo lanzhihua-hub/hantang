@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>联系我们 · 海棠英语</title>
+<meta name="description" content="联系海棠英语：预约免费试听与语法能力测评，公众号、邮箱、微信多种方式找到我们。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+<script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Noto Sans SC"','PingFang SC','Microsoft YaHei','sans-serif'],serifcn:['"Noto Serif SC"','STSong','SimSun','serif']}}}}</script>
+<style>
+  :root{--cream:#FBF7EE;--paper:#FFFDF8;--forest-900:#1C3A2E;--forest-800:#234A39;--forest-700:#2E5E47;--forest-600:#3B7A5C;--forest-100:#DCEAE1;--forest-50:#EEF4EF;--blossom-600:#C75E7A;--blossom-500:#D9788F;--blossom-400:#E79AAA;--blossom-100:#F7E2E7;--blossom-50:#FCF2F4;--ink:#26302B;--muted:#6B7A71}
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:"Noto Sans SC",PingFang SC,"Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+  .font-serifcn{font-family:"Noto Serif SC",STSong,SimSun,serif}
+  .text-forest-900{color:var(--forest-900)}.text-forest-700{color:var(--forest-700)}.text-forest-600{color:var(--forest-600)}.text-blossom-600{color:var(--blossom-600)}.text-muted{color:var(--muted)}
+  .bg-paper{background:var(--paper)}.bg-forest-50{background:var(--forest-50)}.bg-forest-700{background:var(--forest-700)}.bg-forest-800{background:var(--forest-800)}.bg-forest-900{background:var(--forest-900)}.bg-blossom-50{background:var(--blossom-50)}.bg-blossom-100{background:var(--blossom-100)}.bg-blossom-500{background:var(--blossom-500)}
+  .border-forest-100{border-color:var(--forest-100)}.border-blossom-100{border-color:var(--blossom-100)}
+  #siteNav{transition:box-shadow .3s ease,background-color .3s ease}#siteNav.nav-scrolled{box-shadow:0 8px 30px -12px rgba(28,58,46,.18);background:rgba(255,253,248,.92)}
+  .nav-link{position:relative;padding:6px 2px;color:var(--forest-800);font-weight:500;transition:color .25s}
+  .nav-link::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--blossom-500);border-radius:2px;transition:width .3s}
+  .nav-link:hover{color:var(--blossom-600)}.nav-link:hover::after,.nav-link.nav-active::after{width:100%}.nav-link.nav-active{color:var(--blossom-600)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:999px;font-weight:700;font-size:15px;transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,background .25s;cursor:pointer}
+  .btn-primary{background:linear-gradient(135deg,var(--forest-600),var(--forest-800));color:#fff;box-shadow:0 12px 26px -10px rgba(46,94,71,.6)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 34px -10px rgba(46,94,71,.65)}
+  .btn-blossom{background:linear-gradient(135deg,var(--blossom-500),var(--blossom-600));color:#fff;box-shadow:0 12px 26px -12px rgba(199,94,122,.7)}
+  .btn-blossom:hover{transform:translateY(-2px)}
+  .card{background:var(--paper);border:1px solid rgba(46,94,71,.09);border-radius:22px;transition:transform .35s cubic-bezier(.34,1.4,.64,1),box-shadow .35s}
+  .card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -24px rgba(28,58,46,.32)}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.8,.3,1)}.reveal.reveal-in{opacity:1;transform:none}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}.floaty{animation:floaty 5s ease-in-out infinite}
+  .glow{position:absolute;border-radius:50%;filter:blur(70px);z-index:0}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}.faq-icon{transition:transform .3s ease}
+  .field{width:100%;padding:13px 16px;border-radius:14px;border:1.5px solid var(--forest-100);background:var(--paper);font-size:15px;color:var(--ink);transition:border-color .25s,box-shadow .25s;outline:none}
+  .field:focus{border-color:var(--forest-600);box-shadow:0 0 0 4px rgba(59,122,92,.12)}
+  .field::placeholder{color:#A6B2AB}
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<nav id="siteNav" class="fixed top-0 inset-x-0 z-50 bg-paper/80 backdrop-blur-md border-b border-forest-100/60">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center justify-between h-[70px]">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <span class="w-10 h-10 rounded-full grid place-items-center" style="background:linear-gradient(135deg,#F2A6B8,#C75E7A)"><svg viewBox="0 0 24 24" class="w-6 h-6" fill="#fff"><path d="M12 4c1.8 2.2 1.8 4.2 0 6-1.8-1.8-1.8-3.8 0-6Zm-5.6 4.4c2.6-.6 4.4.5 5 2.8-2.6.6-4.4-.5-5-2.8Zm11.2 0c-.6 2.3-2.4 3.4-5 2.8.6-2.3 2.4-3.4 5-2.8ZM12 21c-3.4-1.3-5.2-3.5-5.2-6.2 0-2.2 1.5-3.6 3.3-3.6 1 0 1.6.4 1.9.9.3-.5.9-.9 1.9-.9 1.8 0 3.3 1.4 3.3 3.6 0 2.7-1.8 4.9-5.2 6.2Z"/></svg></span>
+        <span class="font-serifcn text-xl font-bold text-forest-900 tracking-wide">海棠英语</span>
+      </a>
+      <div class="hidden md:flex items-center gap-9">
+        <a href="index.html" data-nav="index.html" class="nav-link">首页</a>
+        <a href="courses.html" data-nav="courses.html" class="nav-link">课程体系</a>
+        <a href="about.html" data-nav="about.html" class="nav-link">关于我们</a>
+        <a href="contact.html" data-nav="contact.html" class="nav-link">联系我们</a>
+      </div>
+      <div class="hidden md:block"><a href="#contactForm" class="btn btn-primary !py-2.5 !px-6 !text-sm">免费试听</a></div>
+      <button id="menuBtn" class="md:hidden w-10 h-10 grid place-items-center rounded-lg text-forest-800" aria-label="打开菜单" aria-expanded="false"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-paper border-t border-forest-100 px-6 py-4 space-y-3">
+    <a href="index.html" class="block py-1.5 text-forest-800 font-medium">首页</a>
+    <a href="courses.html" class="block py-1.5 text-forest-800 font-medium">课程体系</a>
+    <a href="about.html" class="block py-1.5 text-forest-800 font-medium">关于我们</a>
+    <a href="contact.html" class="block py-1.5 text-forest-800 font-medium">联系我们</a>
+    <a href="#contactForm" class="btn btn-primary w-full justify-center mt-2">免费试听</a>
+  </div>
+</nav>
+
+<!-- 页头 -->
+<header class="relative pt-[150px] pb-12 md:pt-[178px] md:pb-14 overflow-hidden">
+  <div class="glow" style="width:400px;height:400px;background:#F6D3DB;top:-130px;right:-100px"></div>
+  <div class="glow" style="width:300px;height:300px;background:#CFE3D6;bottom:-120px;left:-80px"></div>
+  <div class="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 text-center">
+    <span class="inline-block px-4 py-1.5 rounded-full bg-blossom-50 border border-blossom-100 text-blossom-600 text-sm font-medium reveal">CONTACT</span>
+    <h1 class="font-serifcn mt-6 text-4xl md:text-5xl font-black text-forest-900 reveal">和海棠说句话</h1>
+    <p class="mt-5 text-lg text-muted leading-relaxed reveal">无论是想预约试听、咨询课程，还是不确定自己该从哪里开始，都欢迎留言。我们通常在 1 个工作日内回复。</p>
+  </div>
+</header>
+
+<!-- 表单 + 联系信息 -->
+<section class="pb-20 md:pb-24">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-5 gap-8">
+    <!-- 表单 -->
+    <div class="lg:col-span-3 card p-7 md:p-10 reveal">
+      <h2 class="font-serifcn text-2xl font-black text-forest-900">预约免费试听 / 测评</h2>
+      <p class="mt-2 text-sm text-muted">填写下面的信息，课程顾问会尽快与你联系。</p>
+      <form id="contactForm" class="mt-7 space-y-5" novalidate>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="cf-name" class="block text-sm font-semibold text-forest-900 mb-2">称呼 <span class="text-blossom-600">*</span></label>
+            <input id="cf-name" name="name" type="text" class="field" placeholder="你的姓名或昵称" required>
+          </div>
+          <div>
+            <label for="cf-contact" class="block text-sm font-semibold text-forest-900 mb-2">微信号 / 手机号 / 邮箱 <span class="text-blossom-600">*</span></label>
+            <input id="cf-contact" name="contact" type="text" class="field" placeholder="方便联系到你的方式" required>
+          </div>
+        </div>
+        <div>
+          <label for="cf-goal" class="block text-sm font-semibold text-forest-900 mb-2">我想了解</label>
+          <select id="cf-goal" name="goal" class="field">
+            <option>免费语法能力测评</option>
+            <option>预约免费试听课</option>
+            <option>咨询课程与班型</option>
+            <option>中高考冲刺提分</option>
+            <option>其他问题</option>
+          </select>
+        </div>
+        <div>
+          <label for="cf-message" class="block text-sm font-semibold text-forest-900 mb-2">你的情况或想说的话 <span class="text-blossom-600">*</span></label>
+          <textarea id="cf-message" name="message" rows="4" class="field resize-none" placeholder="例如：高二，时态和从句总是混，想系统补一下语法……" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-blossom w-full justify-center !py-4 text-base">提交预约</button>
+        <p id="formStatus" class="hidden text-center text-sm font-medium rounded-xl px-4 py-3"></p>
+        <p class="text-xs text-muted text-center">* 本表单为页面演示，正式上线需接入真实的表单提交服务。</p>
+      </form>
+    </div>
+
+    <!-- 联系渠道 -->
+    <div class="lg:col-span-2 space-y-6">
+      <div class="card p-8 reveal">
+        <div class="w-12 h-12 rounded-2xl grid place-items-center bg-forest-50 text-forest-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v12H4z M4 7l8 6 8-6"/></svg></div>
+        <h3 class="mt-4 font-bold text-lg text-forest-900">电子邮件</h3>
+        <p class="mt-1 text-muted text-sm">课程咨询、合作与建议</p>
+        <p class="mt-3 font-semibold text-forest-700">hello@haitang-english.com</p>
+      </div>
+      <div class="card p-8 reveal">
+        <div class="w-12 h-12 rounded-2xl grid place-items-center bg-blossom-50 text-blossom-600"><svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h8M8 14h5M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.7A8 8 0 1 1 21 12Z"/></svg></div>
+        <h3 class="mt-4 font-bold text-lg text-forest-900">微信咨询</h3>
+        <p class="mt-1 text-muted text-sm">添加课程顾问微信</p>
+        <p class="mt-3 font-semibold text-forest-700">SanViolet_Victoria</p>
+      </div>
+      <div class="relative overflow-hidden rounded-[22px] p-8 text-center reveal" style="background:linear-gradient(135deg,var(--forest-800),var(--forest-900))">
+        <div class="glow" style="width:200px;height:200px;background:#D9788F;opacity:.3;top:-80px;right:-50px"></div>
+        <div class="relative z-10">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-white/10 grid place-items-center"><svg class="w-7 h-7 text-blossom-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 0V4m0 13v3M4 12H1m22 0h-3"/></svg></div>
+          <h3 class="mt-4 font-bold text-lg text-white">关注公众号「海棠英语」</h3>
+          <p class="mt-2 text-sm text-forest-100/80 leading-relaxed">每日一条语法干货，免费学习资料定期发放</p>
+          <span class="inline-block mt-4 px-4 py-2 rounded-lg bg-white/10 text-blossom-400 text-sm font-semibold">微信搜索：海棠英语</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 服务时间 / 流程 -->
+<section class="py-20 md:py-24 bg-forest-50/60">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <p class="text-blossom-600 font-semibold tracking-widest text-sm">HOW IT WORKS</p>
+      <h2 class="font-serifcn mt-3 text-3xl md:text-4xl font-black text-forest-900">报名前，会发生什么</h2>
+    </div>
+    <div class="mt-14 grid md:grid-cols-3 gap-6">
+      <div class="card p-8 reveal relative">
+        <span class="font-serifcn text-5xl font-black text-blossom-100 absolute top-5 right-7 select-none">01</span>
+        <h3 class="font-bold text-lg text-forest-900">提交信息</h3>
+        <p class="mt-3 text-muted leading-relaxed text-sm">通过表单或微信联系我们，简单说说你的基础与目标。</p>
+      </div>
+      <div class="card p-8 reveal relative">
+        <span class="font-serifcn text-5xl font-black text-blossom-100 absolute top-5 right-7 select-none">02</span>
+        <h3 class="font-bold text-lg text-forest-900">免费测评</h3>
+        <p class="mt-3 text-muted leading-relaxed text-sm">完成一次语法能力诊断，得到属于你的语法树缺口报告。</p>
+      </div>
+      <div class="card p-8 reveal relative">
+        <span class="font-serifcn text-5xl font-black text-blossom-100 absolute top-5 right-7 select-none">03</span>
+        <h3 class="font-bold text-lg text-forest-900">定制方案</h3>
+        <p class="mt-3 text-muted leading-relaxed text-sm">试听一节正式课后，课程顾问为你推荐最合适的级别与班型。</p>
+      </div>
+    </div>
+    <p class="mt-10 text-center text-sm text-muted reveal">咨询与回复时间：周一至周日 9:00 – 21:00（示例）</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-20 md:py-24">
+  <div class="max-w-3xl mx-auto px-5 sm:px-8">
+    <div class="text-center reveal">
+      <p class="text-blossom-600 font-semibold tracking-widest text-sm">FAQ</p>
+      <h2 class="font-serifcn mt-3 text-3xl md:text-4xl font-black text-forest-900">报名前常见问题</h2>
+    </div>
+    <div class="mt-12 space-y-4">
+      <div class="faq-item card !rounded-2xl overflow-hidden reveal">
+        <button class="faq-q w-full flex items-center justify-between gap-4 p-6 text-left font-semibold text-forest-900" aria-expanded="false">
+          试听是免费的吗？有没有套路？
+          <span class="faq-icon text-blossom-600 text-2xl leading-none shrink-0">+</span>
+        </button>
+        <div class="faq-a px-6"><p class="pb-6 text-muted leading-relaxed">试听与语法能力测评均为免费，不收取任何费用，也不会强行推销。试听后是否报名完全由你决定。</p></div>
+      </div>
+      <div class="faq-item card !rounded-2xl overflow-hidden reveal">
+        <button class="faq-q w-full flex items-center justify-between gap-4 p-6 text-left font-semibold text-forest-900" aria-expanded="false">
+          提交信息后多久能收到回复？
+          <span class="faq-icon text-blossom-600 text-2xl leading-none shrink-0">+</span>
+        </button>
+        <div class="faq-a px-6"><p class="pb-6 text-muted leading-relaxed">工作时间内通常在 2 小时内回复，非工作时间最晚次日上午联系你。着急的话也可以直接添加课程顾问微信。</p></div>
+      </div>
+      <div class="faq-item card !rounded-2xl overflow-hidden reveal">
+        <button class="faq-q w-full flex items-center justify-between gap-4 p-6 text-left font-semibold text-forest-900" aria-expanded="false">
+          可以先试听再决定报哪个班吗？
+          <span class="faq-icon text-blossom-600 text-2xl leading-none shrink-0">+</span>
+        </button>
+        <div class="faq-a px-6"><p class="pb-6 text-muted leading-relaxed">当然可以，而且我们建议这样做。测评 + 试听后再根据你的实际情况推荐班型，不盲目报课。</p></div>
+      </div>
+      <div class="faq-item card !rounded-2xl overflow-hidden reveal">
+        <button class="faq-q w-full flex items-center justify-between gap-4 p-6 text-left font-semibold text-forest-900" aria-expanded="false">
+          支持退费吗？
+          <span class="faq-icon text-blossom-600 text-2xl leading-none shrink-0">+</span>
+        </button>
+        <div class="faq-a px-6"><p class="pb-6 text-muted leading-relaxed">正式课程开课后设有试听保障期，具体退费规则以报名协议为准，报名前课程顾问会向你完整说明。（此处为示例条款，上线前请替换为真实政策。）</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-forest-900 text-forest-100/80 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-4 gap-10">
+    <div class="md:col-span-2">
+      <div class="flex items-center gap-2.5">
+        <span class="w-9 h-9 rounded-full grid place-items-center" style="background:linear-gradient(135deg,#F2A6B8,#C75E7A)"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="#fff"><path d="M12 4c1.8 2.2 1.8 4.2 0 6-1.8-1.8-1.8-3.8 0-6Zm-5.6 4.4c2.6-.6 4.4.5 5 2.8-2.6.6-4.4-.5-5-2.8Zm11.2 0c-.6 2.3-2.4 3.4-5 2.8.6-2.3 2.4-3.4 5-2.8ZM12 21c-3.4-1.3-5.2-3.5-5.2-6.2 0-2.2 1.5-3.6 3.3-3.6 1 0 1.6.4 1.9.9.3-.5.9-.9 1.9-.9 1.8 0 3.3 1.4 3.3 3.6 0 2.7-1.8 4.9-5.2 6.2Z"/></svg></span>
+        <span class="font-serifcn text-lg font-bold text-white">海棠英语</span>
+      </div>
+      <p class="mt-4 text-sm leading-relaxed max-w-sm">专注英语语法体系化教学，用「语法树」帮每一位学习者，把零散的规则长成完整的能力。</p>
+    </div>
+    <div><h4 class="text-white font-semibold mb-4">快速导航</h4><ul class="space-y-2.5 text-sm"><li><a href="index.html" class="hover:text-blossom-400 transition-colors">首页</a></li><li><a href="courses.html" class="hover:text-blossom-400 transition-colors">课程体系</a></li><li><a href="about.html" class="hover:text-blossom-400 transition-colors">关于我们</a></li><li><a href="contact.html" class="hover:text-blossom-400 transition-colors">联系我们</a></li></ul></div>
+    <div><h4 class="text-white font-semibold mb-4">联系海棠</h4><ul class="space-y-2.5 text-sm"><li>微信公众号：海棠英语</li><li>邮箱：hello@haitang-english.com</li><li>微信：haitang-english</li></ul></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 mt-12 pt-6 border-t border-white/10 text-xs text-forest-100/50 flex flex-wrap justify-between gap-2">
+    <p>© <span id="year">2026</span> 海棠英语 HaiTang English. 保留所有权利。</p>
+    <p>页面数据为演示示例，上线前请替换为真实信息。</p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

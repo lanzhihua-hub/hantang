@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海棠英语 · 让英语语法像海棠花一样层层绽放</title>
+<meta name="description" content="海棠英语，专注英语语法体系化教学。用「语法树」方法，带你从零基础到熟练运用，告别死记硬背。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['"Noto Sans SC"', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+          serifcn: ['"Noto Serif SC"', 'STSong', 'SimSun', 'serif']
+        }
+      }
+    }
+  }
+</script>
+<style>
+  :root{
+    --cream:#FBF7EE; --paper:#FFFDF8;
+    --forest-900:#1C3A2E; --forest-800:#234A39; --forest-700:#2E5E47; --forest-600:#3B7A5C;
+    --forest-100:#DCEAE1; --forest-50:#EEF4EF;
+    --blossom-600:#C75E7A; --blossom-500:#D9788F; --blossom-400:#E79AAA; --blossom-100:#F7E2E7; --blossom-50:#FCF2F4;
+    --ink:#26302B; --muted:#6B7A71;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--cream);color:var(--ink);font-family:"Noto Sans SC",PingFang SC,"Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+  .font-serifcn{font-family:"Noto Serif SC",STSong,SimSun,serif}
+  .text-forest-900{color:var(--forest-900)}.text-forest-700{color:var(--forest-700)}.text-forest-600{color:var(--forest-600)}
+  .text-blossom-600{color:var(--blossom-600)}.text-muted{color:var(--muted)}
+  .bg-cream{background-color:var(--cream)}.bg-paper{background-color:var(--paper)}
+  .bg-forest-50{background:var(--forest-50)}.bg-forest-700{background:var(--forest-700)}.bg-forest-800{background:var(--forest-800)}.bg-forest-900{background:var(--forest-900)}
+  .bg-blossom-50{background:var(--blossom-50)}.bg-blossom-100{background:var(--blossom-100)}.bg-blossom-500{background:var(--blossom-500)}
+  .border-forest-100{border-color:var(--forest-100)}.border-blossom-100{border-color:var(--blossom-100)}
+  .ring-forest-600{--tw-ring-color:var(--forest-600)}
+
+  /* 导航 */
+  #siteNav{transition:box-shadow .3s ease, background-color .3s ease}
+  #siteNav.nav-scrolled{box-shadow:0 8px 30px -12px rgba(28,58,46,.18);background:rgba(255,253,248,.92)}
+  .nav-link{position:relative;padding:6px 2px;color:var(--forest-800);font-weight:500;transition:color .25s}
+  .nav-link::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--blossom-500);border-radius:2px;transition:width .3s ease}
+  .nav-link:hover{color:var(--blossom-600)}
+  .nav-link:hover::after,.nav-link.nav-active::after{width:100%}
+  .nav-link.nav-active{color:var(--blossom-600)}
+
+  /* 按钮 */
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:999px;font-weight:700;font-size:15px;transition:transform .25s cubic-bezier(.34,1.56,.64,1),box-shadow .25s,background .25s;cursor:pointer}
+  .btn-primary{background:linear-gradient(135deg,var(--forest-600),var(--forest-800));color:#fff;box-shadow:0 12px 26px -10px rgba(46,94,71,.6)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 34px -10px rgba(46,94,71,.65)}
+  .btn-blossom{background:linear-gradient(135deg,var(--blossom-500),var(--blossom-600));color:#fff;box-shadow:0 12px 26px -12px rgba(199,94,122,.7)}
+  .btn-blossom:hover{transform:translateY(-2px)}
+  .btn-ghost{border:1.5px solid var(--forest-600);color:var(--forest-700);background:rgba(255,255,255,.5)}
+  .btn-ghost:hover{background:var(--forest-50);transform:translateY(-2px)}
+
+  /* 卡片 */
+  .card{background:var(--paper);border:1px solid rgba(46,94,71,.09);border-radius:22px;transition:transform .35s cubic-bezier(.34,1.4,.64,1),box-shadow .35s}
+  .card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -24px rgba(28,58,46,.32)}
+
+  /* 滚动淡入 */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.8,.3,1)}
+  .reveal.reveal-in{opacity:1;transform:none}
+
+  /* 花瓣漂浮 */
+  @keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(6deg)}}
+  .floaty{animation:floaty 5s ease-in-out infinite}
+  .floaty-2{animation:floaty 6.5s ease-in-out infinite;animation-delay:-2s}
+  @keyframes fall{0%{transform:translateY(-8%) rotate(0);opacity:0}12%{opacity:.7}100%{transform:translateY(108vh) rotate(320deg);opacity:0}}
+  .petal{position:absolute;top:-6%;width:18px;height:18px;background:radial-gradient(circle at 30% 30%,#F2B4C2,var(--blossom-400));border-radius:140% 0 140% 0;opacity:.55;animation:fall linear infinite}
+
+  /* 语法树连线 */
+  .tree-line{fill:none;stroke:var(--forest-600);stroke-width:2.2;stroke-linecap:round;opacity:.55}
+  .tree-node{fill:var(--paper);stroke:var(--forest-600);stroke-width:1.6}
+  .tree-node-accent{fill:var(--blossom-500);stroke:var(--blossom-600)}
+  .tree-text{font:600 13px "Noto Sans SC",sans-serif;fill:var(--forest-800)}
+  .tree-text-light{fill:#fff}
+
+  /* FAQ */
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+  .faq-icon{transition:transform .3s ease}
+
+  /* 背景光晕 */
+  .glow{position:absolute;border-radius:50%;filter:blur(70px);z-index:0}
+</style>
+</head>
+<body class="overflow-x-hidden">
+
+<!-- ============ 导航 ============ -->
+<nav id="siteNav" class="fixed top-0 inset-x-0 z-50 bg-paper/80 backdrop-blur-md border-b border-forest-100/60">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center justify-between h-[70px]">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <span class="w-10 h-10 rounded-full grid place-items-center" style="background:linear-gradient(135deg,#F2A6B8,#C75E7A)">
+          <svg viewBox="0 0 24 24" class="w-6 h-6" fill="#fff"><path d="M12 4c1.8 2.2 1.8 4.2 0 6-1.8-1.8-1.8-3.8 0-6Zm-5.6 4.4c2.6-.6 4.4.5 5 2.8-2.6.6-4.4-.5-5-2.8Zm11.2 0c-.6 2.3-2.4 3.4-5 2.8.6-2.3 2.4-3.4 5-2.8ZM12 21c-3.4-1.3-5.2-3.5-5.2-6.2 0-2.2 1.5-3.6 3.3-3.6 1 0 1.6.4 1.9.9.3-.5.9-.9 1.9-.9 1.8 0 3.3 1.4 3.3 3.6 0 2.7-1.8 4.9-5.2 6.2Z"/></svg>
+        </span>
+        <span class="font-serifcn text-xl font-bold text-forest-900 tracking-wide">海棠英语</span>
+      </a>
+      <div class="hidden md:flex items-center gap-9">
+        <a href="index.html" data-nav="index.html" class="nav-link">首页</a>
+        <a href="courses.html" data-nav="courses.html" class="nav-link">课程体系</a>
+        <a href="about.html" data-nav="about.html" class="nav-link">关于我们</a>
+        <a href="contact.html" data-nav="contact.html" class="nav-link">联系我们</a>
+      </div>
+      <div class="hidden md:block">
+        <a href="contact.html" class="btn btn-primary !py-2.5 !px-6 !text-sm">免费试听</a>
+      </div>
+      <button id="menuBtn" class="md:hidden w-10 h-10 grid place-items-center rounded-lg text-forest-800" aria-label="打开菜单" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden bg-paper border-t border-forest-100 px-6 py-4 space-y-3">
+    <a href="index.html" class="block py-1.5 text-forest-800 font-medium">首页</a>
+    <a href="courses.html" class="block py-1.5 text-forest-800 font-medium">课程体系</a>
+    <a href="about.html" class="block py-1.5 text-forest-800 font-medium">关于我们</a>
+    <a href="contact.html" class="block py-1.5 text-forest-800 font-medium">联系我们</a>
+    <a href="contact.html" class="btn btn-primary w-full justify-center mt-2">免费试听</a>
+  </div>
+</nav>
+
+<!-- ============ Hero ============ -->
+<header class="relative pt-[130px] pb-20 md:pt-[158px] md:pb-28 overflow-hidden">
+  <div class="glow" style="width:420px;height:420px;background:#F6D3DB;top:-90px;left:-110px"></div>
+  <div class="glow" style="width:380px;height:380px;background:#CFE3D6;bottom:-150px;right:-90px"></div>
+  <div id="petals" class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14 lg:gap-10 items-center">
+    <div>
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blossom-50 border border-blossom-100 text-blossom-600 text-sm font-medium">
+        <span class="w-1.5 h-1.5 rounded-full bg-blossom-500"></span>
+        像海棠生长一样，把语法长成体系
+      </span>
+      <h1 class="font-serifcn mt-6 text-4xl sm:text-5xl lg:text-[3.4rem] leading-[1.25] font-black text-forest-900">
+        让英语语法<br>
+        <span style="background:linear-gradient(120deg,var(--blossom-600),#D9788F 55%,var(--forest-600));-webkit-background-clip:text;background-clip:text;color:transparent">像海棠花一样层层绽放</span>
+      </h1>
+      <p class="mt-6 text-lg text-muted leading-relaxed max-w-xl">
+        不再孤立地背规则、刷题目。海棠英语用独创的「语法树」方法，带你看清每个句子的主干与分支——从零基础到长难句，语法第一次变得有逻辑、有画面。
+      </p>
+      <div class="mt-9 flex flex-wrap gap-4">
+        <a href="contact.html" class="btn btn-primary">
+          预约免费试听
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
+        </a>
+        <a href="courses.html" class="btn btn-ghost">查看课程体系</a>
+      </div>
+      <div class="mt-10 flex items-center gap-6 text-sm text-muted">
+        <div class="flex items-center gap-1.5">
+          <span class="text-amber-500">★★★★★</span><span class="font-semibold text-forest-800">4.9</span>
+        </div>
+        <div class="w-px h-4 bg-forest-100"></div>
+        <p>已有 <span class="font-semibold text-forest-800">12,000+</span> 学员在此重学语法</p>
+      </div>
+    </div>
+
+    <!-- 语法树主视觉 -->
+    <div class="relative">
+      <div class="absolute -inset-4 rounded-[36px] opacity-60" style="background:linear-gradient(135deg,#F7E2E7,#DCEAE1);filter:blur(28px)"></div>
+      <div class="relative bg-paper/80 backdrop-blur-xl border border-white/70 rounded-[30px] shadow-[0_30px_70px_-30px_rgba(28,58,46,.4)] p-7 sm:p-9">
+        <div class="absolute -top-5 -right-4 floaty">
+          <svg viewBox="0 0 60 60" class="w-14 h-14"><g><circle cx="30" cy="18" r="9" fill="#F2A6B8"/><circle cx="42" cy="30" r="9" fill="#E79AAA"/><circle cx="30" cy="42" r="9" fill="#F2A6B8"/><circle cx="18" cy="30" r="9" fill="#E79AAA"/><circle cx="30" cy="30" r="7" fill="#F4D98C"/></g></svg>
+        </div>
+        <p class="text-sm font-semibold text-forest-700 flex items-center gap-2">
+          <span class="w-6 h-px bg-forest-600"></span>一棵句子的语法树
+        </p>
+        <svg viewBox="0 0 400 270" class="w-full mt-4" role="img" aria-label="英语句子语法树示意图">
+          <path class="tree-line" d="M200 58 L120 108 M200 58 L280 108"/>
+          <path class="tree-line" d="M120 132 L60 182 M120 132 L150 182"/>
+          <path class="tree-line" d="M280 132 L250 182 M280 132 L340 182"/>
+          <rect class="tree-node-accent" x="166" y="30" width="68" height="30" rx="15"/>
+          <text x="200" y="50" text-anchor="middle" class="tree-text tree-text-light">句子</text>
+          <rect class="tree-node" x="86" y="106" width="68" height="28" rx="14"/>
+          <text x="120" y="125" text-anchor="middle" class="tree-text">主语</text>
+          <rect class="tree-node" x="246" y="106" width="68" height="28" rx="14"/>
+          <text x="280" y="125" text-anchor="middle" class="tree-text">谓语</text>
+          <rect class="tree-node" x="28" y="180" width="64" height="26" rx="13"/>
+          <text x="60" y="198" text-anchor="middle" class="tree-text" style="font-size:12px">名词</text>
+          <rect class="tree-node" x="118" y="180" width="64" height="26" rx="13"/>
+          <text x="150" y="198" text-anchor="middle" class="tree-text" style="font-size:12px">代词</text>
+          <rect class="tree-node" x="218" y="180" width="64" height="26" rx="13"/>
+          <text x="250" y="198" text-anchor="middle" class="tree-text" style="font-size:12px">动词</text>
+          <rect class="tree-node" x="308" y="180" width="64" height="26" rx="13"/>
+          <text x="340" y="198" text-anchor="middle" class="tree-text" style="font-size:12px">宾语</text>
+        </svg>
+        <p class="mt-3 text-sm text-muted leading-relaxed">把一个句子拆成一棵树，主干、分支一目了然。看懂结构，规则不用背，长难句也能秒拆解。</p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span class="px-3 py-1 rounded-full bg-forest-50 text-forest-700 text-xs font-medium">时态</span>
+          <span class="px-3 py-1 rounded-full bg-forest-50 text-forest-700 text-xs font-medium">从句</span>
+          <span class="px-3 py-1 rounded-full bg-blossom-50 text-blossom-600 text-xs font-medium">非谓语</span>
+          <span class="px-3 py-1 rounded-full bg-blossom-50 text-blossom-600 text-xs font-medium">虚拟语气</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ 数据条 ============ -->
+<section class="relative z-10 -mt-6 mb-4">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 bg-paper rounded-3xl border border-forest-100/70 shadow-[0_20px_50px_-30px_rgba(28,58,46,.4)] py-8 px-4">
+      <div class="text-center reveal"><p class="font-serifcn text-3xl md:text-4xl font-black text-forest-700"><span data-count="12000" data-suffix="+">0</span></p><p class="mt-1.5 text-sm text-muted">累计学员</p></div>
+      <div class="text-center reveal"><p class="font-serifcn text-3xl md:text-4xl font-black text-forest-700"><span data-count="300" data-suffix="+">0</span></p><p class="mt-1.5 text-sm text-muted">精品课时</p></div>
+      <div class="text-center reveal"><p class="font-serifcn text-3xl md:text-4xl font-black text-blossom-600"><span data-count="96" data-suffix="%">0</span></p><p class="mt-1.5 text-sm text-muted">学员提分率</p></div>
+      <div class="text-center reveal"><p class="font-serifcn text-3xl md:text-4xl font-black text-forest-700"><span data-count="20" data-suffix="+">0</span></p><p class="mt-1.5 text-sm text-muted">资深讲师</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 为什么选择 ============ -->
+<section class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <p class="text-blossom-600 font-semibold tracking-widest text-sm">WHY HAITANG</p>
+      <h2 class="font-serifcn mt-3 text-3xl md:text-4xl font-black text-forest-900">为什么语法，要在这里重学一遍</h2>
+      <p class="mt-4 text-muted leading-relaxed">多数人不是学不会语法，而是从未见过语法的「全貌」。我们做的，是帮你把零散的规则连成一棵完整的树。</p>
+    </div>
+    <div class="mt-14 grid md:grid-cols-3 gap-6">
+      <div class="card p-8 reveal">
+        <div class="w-14 h-14 rounded-2xl grid place-items-center bg-forest-50 text-forest-700">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M12 8c-3 0-5-1.5-6-4 0 4 2.5 6 6 6Zm0 4c3 0 5-1.5 6-4 0 4-2.5 6-6 6Zm0 4c-3 0-5-1.5-6-4 0 4 2.5 6 6 6Z"/></svg>
+        </div>
+        <h3 class="font-serifcn mt-5 text-xl font-bold text-forest-900">语法树教学法</h3>
+        <p class="mt-3 text-muted leading-relaxed">独创树形知识图谱，每个规则都有自己的位置。先见森林、再看枝叶，学完能在白纸上默画出整张语法地图。</p>
+      </div>
+      <div class="card p-8 reveal">
+        <div class="w-14 h-14 rounded-2xl grid place-items-center bg-blossom-50 text-blossom-600">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6M19 5v14"/></svg>
+        </div>
+        <h3 class="font-serifcn mt-5 text-xl font-bold text-forest-900">体系化进阶路径</h3>
+        <p class="mt-3 text-muted leading-relaxed">测、学、练、用四步闭环，从五大基本句型到时态、从句、非谓语，逐级递进，不跳步、不漏点。</p>
+      </div>
+      <div class="card p-8 reveal">
+        <div class="w-14 h-14 rounded-2xl grid place-items-center bg-forest-50 text-forest-700">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM8 15c1 1.3 2.4 2 4 2s3-.7 4-2"/></svg>
+        </div>
+        <h3 class="font-serifcn mt-5 text-xl font-bold text-forest-900">小班陪伴反馈</h3>
+        <p class="mt-3 text-muted leading-relaxed">20 人以内小班，作业逐句批改，讲师每日答疑。你写的每一个句子，都会被认真看见。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 热门课程 ============ -->
+<section class="py-20 md:py-24 bg-forest-50/60 relative">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-wrap items-end justify-between gap-4 reveal">
+      <div>
+        <p class="text-blossom-600 font-semibold tracking-widest text-sm">POPULAR COURSES</p>
+        <h2 class="font-serifcn mt-3 text-3xl md:text-4xl font-black text-forest-900">热门语法课程</h2>
+      </div>
+      <a href="courses.html" class="text-forest-700 font-semibold hover:text-blossom-600 transition-colors inline-flex items-center gap-1.5">
+        查看全部 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" d="M5 12h14m-6-6 6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="card overflow-hidden reveal">
+        <div class="h-36 relative grid place-items-center" style="background:linear-gradient(135deg,#DCEAE1,#BFD8C8)">
+          <span class="font-serifcn text-5xl font-black text-forest-700/30">01</span>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-paper/90 text-forest-700 text-xs font-semibold">入门</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-lg text-forest-900">零基础语法入门</h3>
+          <p class="mt-2 text-sm text-muted leading-relaxed">词性、句子成分与五大基本句型，搭好语法第一块地基。</p>
+          <div class="mt-5 flex items-center justify-between text-sm"><span class="text-muted">24 课时</span><span class="font-bold text-blossom-600">¥399</span></div>
+        </div>
+      </div>
+      <div class="card overflow-hidden reveal">
+        <div class="h-36 relative grid place-items-center" style="background:linear-gradient(135deg,#F7E2E7,#EFC3CE)">
+          <span class="font-serifcn text-5xl font-black text-blossom-600/30">02</span>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-paper/90 text-blossom-600 text-xs font-semibold">核心</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-lg text-forest-900">八大时态通关</h3>
+          <p class="mt-2 text-sm text-muted leading-relaxed">一条时间轴讲透八大时态，从此不再混淆进行与完成。</p>
+          <div class="mt-5 flex items-center justify-between text-sm"><span class="text-muted">32 课时</span><span class="font-bold text-blossom-600">¥599</span></div>
+        </div>
+      </div>
+      <div class="card overflow-hidden reveal">
+        <div class="h-36 relative grid place-items-center" style="background:linear-gradient(135deg,#DCEAE1,#BFD8C8)">
+          <span class="font-serifcn text-5xl font-black text-forest-700/30">03</span>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-paper/90 text-forest-700 text-xs font-semibold">进阶</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-lg text-forest-900">长难句拆解术</h3>
+          <p class="mt-2 text-sm text-muted leading-relaxed">从句、非谓语、倒装与省略，用语法树逐层剥开难句。</p>
+          <div class="mt-5 flex items-center justify-between text-sm"><span class="text-muted">36 课时</span><span class="font-bold text-blossom-600">¥699</span></div>
+        </div>
+      </div>
+      <div class="card overflow-hidden reveal">
+        <div class="h-36 relative grid place-items-center" style="background:linear-gradient(135deg,#F7E2E7,#EFC3CE)">
+          <span class="font-serifcn text-5xl font-black text-blossom-600/30">04</span>
+          <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-paper/90 text-blossom-600 text-xs font-semibold">冲刺</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-lg text-forest-900">中高考语法冲刺</h3>
+          <p class="mt-2 text-sm text-muted leading-relaxed">高频考点串讲 + 真题精练，考前高效查漏补缺。</p>
+          <div class="mt-5 flex items-center justify-between text-sm"><span class="text-muted">40 课时</span><span class="font-bold text-blossom-600">¥899</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="mt-6 text-xs text-muted">* 课程与价格为页面展示示例，正式上线前请替换为真实信息。</p>
+  </div>
+</section>
+
+<!-- ============ 学习路径 ============ -->
+<section class="py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <p class="text-blossom-600 font-semibold tracking-widest text-sm">LEARNING PATH</p>
+      <h2 class="font-serifcn mt-3 text-3xl md:text-4xl font-black text-forest-900">四步，把语法学成自己的能力</h2>
+    </div>
+    <div class="mt-16 grid md:grid-cols-4 gap-8 relative">
+      <div class="hidden md:block absolute top-7 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-blossom-400 via-forest-600 to-blossom-400 opacity-30"></div>
+      <div class="relative text-center reveal">
+        <div class="w-14 h-14 mx-auto rounded-full bg-paper border-2 border-blossom-400 grid place-items-center font-serifcn text-xl font-black text-blossom-600 shadow-md">测</div>
+        <h3 class="mt-5 font-bold text-lg text-forest-900">水平测评</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">入学语法能力诊断，定位薄弱环节，定制起点。</p>
+      </div>
+      <div class="relative text-center reveal">
+        <div class="w-14 h-14 mx-auto rounded-full bg-paper border-2 border-forest-600 grid place-items-center font-serifcn text-xl font-black text-forest-700 shadow-md">学</div>
+        <h3 class="mt-5 font-bold text-lg text-forest-900">体系精讲</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">语法树图谱 + 情景化讲解，理解在前、记忆在后。</p>
+      </div>
+      <div class="relative text-center reveal">
+        <div class="w-14 h-14 mx-auto rounded-full bg-paper border-2 border-forest-600 grid place-items-center font-serifcn text-xl font-black text-forest-700 shadow-md">练</div>
+        <h3 class="mt-5 font-bold text-lg text-forest-900">刻意练习</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">分层题库 + 逐句批改，错题自动归入语法树。</p>
+      </div>
+      <div class="relative text-center reveal">
+        <div class="w-14 h-14 mx-auto rounded-full bg-paper border-2 border-blossom-400 grid place-items-center font-serifcn text-xl font-black text-blossom-600 shadow-md">用</div>
+        <h3 class="mt-5 font-bold text-lg text-forest-900">输出运用</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">造句、仿写、写作与口语实战，让语法真正用起来。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 学员评价 ============ -->
+<section class="py-20 md:py-24 bg-forest-50/60">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto reveal">
+      <p class="text-blossom-600 font-semibold tracking-widest text-sm">TESTIMONIALS</p>
+      <h2 class="font-serifcn mt-3 text-3xl md:text-4xl font-black text-forest-900">学员怎么说</h2>
+    </div>
+    <div class="mt-14 grid md:grid-cols-3 gap-6">
+      <figure class="card p-8 reveal">
+        <div class="text-amber-500 text-sm">★★★★★</div>
+        <blockquote class="mt-4 text-ink leading-relaxed">"以前语法全靠语感，选择题总在两个选项里纠结。学了语法树之后，我能说出每个选项为什么对、为什么错，模考语法几乎不丢分了。"</blockquote>
+        <figcaption class="mt-6 flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full grid place-items-center font-bold text-white" style="background:linear-gradient(135deg,#7FB39A,#3B7A5C)">林</span>
+          <div><p class="font-semibold text-forest-900 text-sm">林同学</p><p class="text-xs text-muted">高三 · 语法冲刺班</p></div>
+        </figcaption>
+      </figure>
+      <figure class="card p-8 reveal">
+        <div class="text-amber-500 text-sm">★★★★★</div>
+        <blockquote class="mt-4 text-ink leading-relaxed">"工作后想捡英语，被各种从句劝退。老师把长难句画成树一层层拆，我突然就看懂了英文邮件和文档，逻辑比我想的清楚太多。"</blockquote>
+        <figcaption class="mt-6 flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full grid place-items-center font-bold text-white" style="background:linear-gradient(135deg,#F2A6B8,#C75E7A)">陈</span>
+          <div><p class="font-semibold text-forest-900 text-sm">陈女士</p><p class="text-xs text-muted">职场进阶 · 长难句班</p></div>
+        </figcaption>
+      </figure>
+      <figure class="card p-8 reveal">
+        <div class="text-amber-500 text-sm">★★★★★</div>
+        <blockquote class="mt-4 text-ink leading-relaxed">"孩子以前最烦背语法规则，现在会主动给我讲句子的'树'长什么样。作业被逐句批改，能感觉到老师是真的在用心带。"</blockquote>
+        <figcaption class="mt-6 flex items-center gap-3">
+          <span class="w-11 h-11 rounded-full grid place-items-center font-bold text-white" style="background:linear-gradient(135deg,#7FB39A,#3B7A5C)">王</span>
+          <div><p class="font-semibold text-forest-900 text-sm">王女士（家长）</p><p class="text-xs text-muted">初中 · 体系课</p></div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 底部 CTA ============ -->
+<section class="py-20 md:py-24">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="relative overflow-hidden rounded-[32px] px-8 py-16 md:px-16 md:py-20 text-center" style="background:linear-gradient(135deg,var(--forest-800),var(--forest-900))">
+      <div class="glow" style="width:300px;height:300px;background:#D9788F;opacity:.35;top:-120px;right:-60px"></div>
+      <div class="glow" style="width:260px;height:260px;background:#5C9B7C;opacity:.4;bottom:-130px;left:-50px"></div>
+      <div class="relative z-10">
+        <div class="floaty inline-block">
+          <svg viewBox="0 0 60 60" class="w-12 h-12 mx-auto"><g><circle cx="30" cy="18" r="9" fill="#F2A6B8"/><circle cx="42" cy="30" r="9" fill="#E79AAA"/><circle cx="30" cy="42" r="9" fill="#F2A6B8"/><circle cx="18" cy="30" r="9" fill="#E79AAA"/><circle cx="30" cy="30" r="7" fill="#F4D98C"/></g></svg>
+        </div>
+        <h2 class="font-serifcn mt-5 text-3xl md:text-4xl font-black text-white">现在，给自己一次真正学懂语法的机会</h2>
+        <p class="mt-4 text-forest-100/90 text-lg">预约一节免费试听课，领取你的专属语法能力诊断报告</p>
+        <a href="contact.html" class="btn btn-blossom mt-9 !px-10 !py-4 text-base">立即预约免费试听</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer class="bg-forest-900 text-forest-100/80 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-4 gap-10">
+    <div class="md:col-span-2">
+      <div class="flex items-center gap-2.5">
+        <span class="w-9 h-9 rounded-full grid place-items-center" style="background:linear-gradient(135deg,#F2A6B8,#C75E7A)">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="#fff"><path d="M12 4c1.8 2.2 1.8 4.2 0 6-1.8-1.8-1.8-3.8 0-6Zm-5.6 4.4c2.6-.6 4.4.5 5 2.8-2.6.6-4.4-.5-5-2.8Zm11.2 0c-.6 2.3-2.4 3.4-5 2.8.6-2.3 2.4-3.4 5-2.8ZM12 21c-3.4-1.3-5.2-3.5-5.2-6.2 0-2.2 1.5-3.6 3.3-3.6 1 0 1.6.4 1.9.9.3-.5.9-.9 1.9-.9 1.8 0 3.3 1.4 3.3 3.6 0 2.7-1.8 4.9-5.2 6.2Z"/></svg>
+        </span>
+        <span class="font-serifcn text-lg font-bold text-white">海棠英语</span>
+      </div>
+      <p class="mt-4 text-sm leading-relaxed max-w-sm">专注英语语法体系化教学，用「语法树」帮每一位学习者，把零散的规则长成完整的能力。</p>
+    </div>
+    <div>
+      <h4 class="text-white font-semibold mb-4">快速导航</h4>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="index.html" class="hover:text-blossom-400 transition-colors">首页</a></li>
+        <li><a href="courses.html" class="hover:text-blossom-400 transition-colors">课程体系</a></li>
+        <li><a href="about.html" class="hover:text-blossom-400 transition-colors">关于我们</a></li>
+        <li><a href="contact.html" class="hover:text-blossom-400 transition-colors">联系我们</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-semibold mb-4">联系海棠</h4>
+      <ul class="space-y-2.5 text-sm">
+        <li>微信公众号：海棠英语</li>
+        <li>邮箱：hello@haitang-english.com</li>
+        <li>微信：haitang-english</li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 mt-12 pt-6 border-t border-white/10 text-xs text-forest-100/50 flex flex-wrap justify-between gap-2">
+    <p>© <span id="year">2026</span> 海棠英语 HaiTang English. 保留所有权利。</p>
+    <p>页面数据为演示示例，上线前请替换为真实信息。</p>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+<script>
+  // 生成飘落花瓣
+  (function(){
+    var box=document.getElementById('petals');
+    for(var i=0;i<10;i++){
+      var p=document.createElement('span');
+      p.className='petal';
+      p.style.left=(Math.random()*100)+'%';
+      p.style.animationDuration=(9+Math.random()*8)+'s';
+      p.style.animationDelay=(-Math.random()*12)+'s';
+      var s=10+Math.random()*14;p.style.width=s+'px';p.style.height=s+'px';
+      box.appendChild(p);
+    }
+  })();
+</script>
+</body>
+</html>
